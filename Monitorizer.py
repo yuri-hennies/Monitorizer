@@ -16,10 +16,6 @@ today = datetime.today().strftime("%d/%m/%Y")
 import tkinter as tk
 from tkinter import ttk
 
-
-#CHANGE TO TEST GITHUB
-
-
 options=Options()
 #options.add_argument("--headless=new")
 options.add_argument("--window-size=1920,1080")
@@ -29,10 +25,10 @@ driver = webdriver.Chrome(options=options)
 driver.get("https://backoffice.prod.qflash.com.br/login")
 
 email = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "email")))
-email.send_keys("yuri.hennies@qflash.com.br")
+email.send_keys("email")
 
 password = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "password")))
-password.send_keys("QFlash@2025")
+password.send_keys("password")
 
 login_button = WebDriverWait(driver, 10).until(
 	EC.element_to_be_clickable(
@@ -52,10 +48,10 @@ WebDriverWait(driver, 10).until(
 driver.get("https://sistema02.finvestdigital.com.br/login")
 
 FROMTIS_login = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "j_username")))
-FROMTIS_login.send_keys("yuri.hennies")
+FROMTIS_login.send_keys("login")
 
 FROMTIS_pass = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "j_password")))
-FROMTIS_pass.send_keys("Borisfaisca1")
+FROMTIS_pass.send_keys("password")
 
 FROMTIS_button = WebDriverWait(driver, 10).until(
 	EC.element_to_be_clickable(
@@ -78,14 +74,14 @@ QCERT_login = WebDriverWait(driver, 10).until(
 		(By.NAME, "ctl00$body$txtUsuario")
 		)
 	)
-QCERT_login.send_keys("12774451760")
+QCERT_login.send_keys("login")
 
 QCERT_pass = WebDriverWait(driver, 10).until(
 	EC.presence_of_element_located(
 		(By.NAME, "ctl00$body$txtSenha")
 		)
 	)
-QCERT_pass.send_keys("Borisfaisca1@")
+QCERT_pass.send_keys("password")
 
 QCERT_button = WebDriverWait(driver, 10).until(
 	EC.element_to_be_clickable(
@@ -351,7 +347,9 @@ def get_QCERT_data(selected_date):
 
 	driver.get("https://portal.qcertifica.com.br/DigitalSignature/FAS903.aspx")
 
+	'''
 	login_screen = driver.find_element(By.NAME, "ctl00$body$txtUsuario")
+
 
 	if login_screen:
 
@@ -394,6 +392,7 @@ def get_QCERT_data(selected_date):
 		except TimeoutException:
 
 				print("Nope")
+	'''
 
 	documento_de = WebDriverWait(driver, 10).until(
 		EC.presence_of_element_located(
